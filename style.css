@@ -1,0 +1,148 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    background-color: var(--main-background);
+    font-family: 'Oswald', sans-serif;
+}
+
+.navigation-bar {
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid black;
+    display: flex;
+    text-align: center;
+    background-color: aliceblue;
+}
+
+.navigation-bar-name {
+    margin: auto 0;
+    flex-basis: 100%;
+    font-size: 25px;
+    font-weight: 800;
+    color: black;
+    letter-spacing: 2px;
+    user-select: none;
+}
+
+.content-block {
+    display: flex;
+    height: 100vh;
+    margin: 10px;
+    font-family: sans-serif;
+}
+
+.main-left {
+    border-right: 1px solid black;
+    flex-basis: 80%;
+    padding: 10px;
+}
+
+.main-right {
+    flex-basis: 20%;
+    margin: 10px;
+}
+
+.content-right {
+    right: 0px;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 10px auto;
+    padding: 10px;
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    border-bottom: 1px solid black;
+    background-color: aliceblue;
+    transition: .2s;
+}
+
+@media (max-width: 800px) {
+    .main-right {
+        display: none;
+    }
+    .main-left {
+        flex-basis: 100%;
+        border: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-left {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px;
+    }
+}
+
+.content-image {
+    height: 200px;
+    width: inherit;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.content-text {
+    display: flex;
+    flex-flow: column;
+    gap: 4px;
+}
+
+.content-text > b {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.content-text > span {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgb(51, 51, 51);
+}
+
+.content-left {
+    width: 470px;
+    border-bottom: 1px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 10px auto;
+    transition: .25s ease-in-out;
+    padding: 10px;
+    display: flex;
+    height: 290px
+}
+
+.content-left:hover, .content-right:hover {
+    background-color: rgb(220, 238, 255);
+}
+
+.content-left:active, .content-right:active {
+    background-color: rgb(173, 216, 255);
+}
+
+.content-left-image {
+    height: 280px;
+    width: inherit;
+    background-position:center center;
+    background-size:cover;
+    margin: 5px 5px 0px;
+    border-radius: 10px;
+}
+
+.content-left-text {
+    display: flex;
+    height: 280px;
+    flex-flow: column;
+    margin-left: 5px;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.content-left-title {
+    font-size: 1.25em;
+}
+
+.content-left-description {
+    font-size: 0.8em;
+}
