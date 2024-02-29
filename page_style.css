@@ -1,0 +1,35 @@
+.page-main-block {
+    margin: 20px;
+    display: flex;
+    flex-flow: column;
+}
+
+.page-main-info {
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+
+.page-main-title {
+    margin-left: 5px;
+    letter-spacing: 2px;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.page-main-author {
+    margin-left: 10px;
+    font-size: 15px;
+    color: rgb(70, 70, 70);
+}
+
+.page-main-author > span:last-child {
+    float: right;
+    margin-right: 10px;
+}
+
+.page-main-content {
+    margin: 20px;
+    line-height: 20px;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}

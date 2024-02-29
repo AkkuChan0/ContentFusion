@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resources.css">
+    <link rel="stylesheet" href="page_style.css">
+    <script src="knockout-3.5.1.js"></script>
+    <script src="script.js"></script>
+
+    <title>Что-то</title>
+</head>
+<body>
+    <div class="navigation-bar">
+        <a href="index.html" class="navigation-bar-name">ContentFusion</a>
+    </div>
+    <div class="content-block">
+        <div class="main-left">
+            <div class="page-main-block">
+                <div class="page-main-info">
+                    <h2 class="page-main-title">
+                        Тестовая статья №1
+                    </h2>
+                    <div class="page-main-author">
+                        <span>
+                            Автор: Inter
+                        </span>
+                        <span style="margin-left: 10px">29.02.2024</span>
+                    </div>
+                </div>
+                <div class="page-main-content">
+                    <p>
+                        Перенос слов средствами CSS
+                    </p>
+                    <p>
+                        В CSS есть несколько свойств, влияющих на перенос текста.
+                    </p>
+                    <p>
+                        overflow-wrap (word-wrap) - управляет переносом длинных слов (normal - не переносить, если перенос не задан явно, break-word - принудительно переносить).
+                        word-break - управляет переносом длинных слов (normal - не переносить, если перенос не задан явно, break-all - принудительно переносить, keep-all - не переносить, даже если слово содержит дефис).
+                        hyphens - автоматический перенос слов, основанный на встроенном в браузер словаре переносов (none - не переносить, auto - переносить длинные слова).
+                    </p>
+                    <p>
+                        Название word-wrap является устаревшим, но сохраняется для совместимости со старыми версиями браузеров.
+                    </p>
+                    <p>
+                        Свойства word-wrap и word-break на первый взгляд делают одно и то же, но есть небольшие отличия. Word-wrap считается более общим, тогда как word-break предусматривает специальное поведение для китайского, японского и корейского языков. Word-wrap начинает не поместившееся слово с новой строки, а word-break нет. Однако word-break является более приоритетным по отношению к word-wrap.
+                    </p>
+                    <p>
+                        Свойство hyphens является наиболее мощным и удобным, но его поддержка браузерами пока не идеальна. Плюс оно требует обязательного указания языка в атрибуте lang тега (например, lang="ru").
+                    </p>
+                </div>
+                <div class="page-main-stitistic">
+
+                </div>
+                <div class="page-main-comments">
+
+                </div>
+            </div>
+        </div>
+        <div class="main-right">
+            <div class="content-right">
+                <img class="content-image image-2" />
+                <div class="content-text">
+                    <b>
+                        Здесь будет какая-то информация
+                    </b>
+                    <span>
+                        А здесь что-то поменьше
+                    </span>
+                </div>
+            </div>
+            <div class="content-right">
+                <img class="content-image image-1" />
+                <div class="content-text">
+                    <b>
+                        Реклама
+                    </b>
+                    <span>
+                        Ещё что-то о рекламе
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
