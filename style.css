@@ -45,10 +45,11 @@ body {
 
 .content-right {
     right: 0px;
-    width: 150px;
+    min-width: 150px;
+    max-width: 200px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    margin: 10px auto;
+    margin: 10px auto 20px;
     padding: 10px;
     display: flex;
     flex-flow: column;
@@ -56,6 +57,7 @@ body {
     border-bottom: 1px solid black;
     background-color: aliceblue;
     transition: .2s;
+    cursor: pointer;
 }
 
 @media (max-width: 800px) {
@@ -68,7 +70,7 @@ body {
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1300px) {
     .main-left {
         display: grid;
         grid-template-columns: auto auto;
@@ -103,7 +105,8 @@ body {
 }
 
 .content-left {
-    width: 470px;
+    width: 500px;
+    min-width: 400px;
     border-bottom: 1px solid black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -111,7 +114,8 @@ body {
     transition: .25s ease-in-out;
     padding: 10px;
     display: flex;
-    height: 290px
+    height: 290px;
+    cursor: pointer;
 }
 
 .content-left:hover, .content-right:hover {
