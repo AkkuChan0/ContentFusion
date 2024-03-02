@@ -14,7 +14,7 @@
     <script src="knockout-3.5.1.js"></script>
     <script src="script.js"></script>
 
-    <title>Что-то</title>
+    <title>Статья №1</title>
 </head>
 <body>
     <div class="navigation-bar">
@@ -56,11 +56,22 @@
                         Свойство hyphens является наиболее мощным и удобным, но его поддержка браузерами пока не идеальна. Плюс оно требует обязательного указания языка в атрибуте lang тега (например, lang="ru").
                     </p>
                 </div>
-                <div class="page-main-stitistic">
-
+                <div class="page-main-statistic">
+                    <button class="page-main-button-reaction like">+</button>
+                    <span style="font-size: 25px; user-select: none;">/</span>
+                    <button class="page-main-button-reaction dislike">–</button>
+                    <span class="page-main-reaction-count">
+                        0
+                    </span>
                 </div>
                 <div class="page-main-comments">
-
+                    <div class="page-main-comments-title">
+                        <span>Комментарии</span>
+                        <span>(1)</span>
+                    </div>
+                    <div class="page-main-comments-new-comment">
+                        <textarea contenteditable class="page-main-comments-new-comment-input"></textarea>
+                    </div>
                 </div>
             </div>
         </div>

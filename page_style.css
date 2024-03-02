@@ -28,8 +28,71 @@
 }
 
 .page-main-content {
-    margin: 20px;
-    line-height: 20px;
+    background-color: aliceblue;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 10px;
+    line-height: 23px;
     font-family: sans-serif;
     letter-spacing: 1px;
+}
+
+.page-main-statistic {
+    margin-left: 10px;
+    user-select: none;
+}
+
+.page-main-button-reaction {
+    font-size: 25px;
+    border: none;
+    background-color: inherit;
+    transition: .2s;
+}
+
+.like:hover {
+    color: green;
+}
+
+.like:active {
+    color: rgb(0, 61, 0);
+}
+
+.dislike:hover {
+    color: red;
+}
+
+.dislike:active {
+    color: rgb(112, 0, 0);
+}
+
+.page-main-reaction-count {
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+.page-main-comments {
+    margin: 10px;
+    background-color: aliceblue;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.page-main-comments-title {
+    font-size: 20px;
+}
+
+.page-main-comments-new-comment {
+    margin-top: 30px;
+}
+
+.page-main-comments-new-comment-input {
+    border: none;
+    width: 90%;
+    
+    background-color: white;
+    height: 50px;
+    border-radius: 10px;
+    padding: 15px;
+    border-bottom: 1px solid black;
+    resize: vertical;
 }

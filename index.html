@@ -17,9 +17,20 @@
 </head>
 <body>
     <div class="navigation-bar">
-        <a href="page.html#1" class="navigation-bar-name">FlickFusion</a>
+        <a href="index.html" class="navigation-bar-name">ContentFusion</a>
     </div>
     <div class="content-block">
+        <div class="categories-block">
+            <button class="categories-button">
+                Новое
+            </button>
+            <button class="categories-button">
+                Популярное
+            </button>
+            <button class="categories-button">
+                Категории
+            </button>
+        </div>
         <div class="main-left">
             <div onclick="location.href='page.html#1'" class="content-left">
                 <img class="content-left-image image-1"/>
@@ -91,5 +102,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function AppViewModel() {
+        }
+
+        // Activates knockout.js
+        ko.applyBindings(new AppViewModel());
+    </script>
 </body>
 </html>
