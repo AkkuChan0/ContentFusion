@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+* {
+    --main-color: #6495ED;
+    --main-bg-color: aliceblue;
+}
+
 body {
     box-sizing: border-box;
     margin: 0;
-    background-color: var(--main-background);
+    background-color: white;
     font-family: 'Oswald', sans-serif;
 }
 
@@ -13,23 +18,22 @@ body {
     border-bottom: 1px solid black;
     display: flex;
     text-align: center;
-    background-color: aliceblue;
+    background: linear-gradient(to right bottom, var(--main-color), rgb(139, 139, 219));
 }
 
 .navigation-bar-name {
     margin: auto;
     font-size: 25px;
     font-weight: 800;
-    color: black;
+    color: white;
     letter-spacing: 2px;
     user-select: none;
-    transition: .15s;
+    transition: .35s;
     text-decoration: none;
 }
 
 .navigation-bar-name:hover {
-    color: white;
-    text-shadow: 0px 0px 2px black;
+    color: black;
 }
 
 .navigation-bar-name:active {
@@ -68,7 +72,6 @@ body {
     flex-flow: column;
     gap: 10px;
     border-bottom: 1px solid black;
-    background-color: aliceblue;
     transition: .2s;
     cursor: pointer;
 }
@@ -80,6 +83,9 @@ body {
     .main-left {
         flex-basis: 90%;
         border: none;
+    }
+    .categories-block {
+        display: none;
     }
 }
 
@@ -191,26 +197,79 @@ body {
 }
 
 .categories-block {
-    width: 300px;
-    display: flex;
-    flex-flow: column;
     gap: 20px;
     margin-left: 30px;
-    margin-top: 100px;
+    padding-top: 100px;
+    border-right: 1px solid black;
+    padding-right: 30px;
 }
 
 .categories-button {
     font-size: 25px;
     border: none;
-    background-color: inherit;
+    background: inherit;
     text-align: left;
-    width: 200px;
+    width: inherit;
     cursor: pointer;
     transition: .3s;
     font-weight: 600;
     font-family: "Kanit", sans-serif;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 15px;
+    padding: 5px 10px 5px 10px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .categories-button:hover {
-    color: rgb(182, 229, 238);
+    background: linear-gradient(-45deg, var(--main-color), rgb(206, 37, 192));
+    color: white;
+    background-size: 150% 150%;
+    animation: gradient 1s ease infinite;
+}
+
+.categories-button:active {
+    background: linear-gradient(-45deg, rgb(119, 0, 255), rgb(255, 0, 212));
+    color: white;
+    background-size: 200% 200%;
+    animation: gradient 1s ease infinite;
+}
+
+.categories-button-active {
+    background: linear-gradient(-45deg, var(--main-color), rgb(168, 45, 240));
+    color: white;
+    background-size: 200% 200%;
+    animation: gradient 1s ease infinite;
+}
+
+.auth-button {
+    border: none;
+    background-color: inherit;
+    font-size: 20px;
+    margin-right: 20px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    transition: .2s;
+}
+
+.auth-button:hover {
+    color: black;
+    font-weight: 600;
+}
+
+.auth-button:active {
+    color:rgb(195, 19, 248);
+    font-weight: 700;
 }

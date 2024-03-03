@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="resources.css">
     <script src="knockout-3.5.1.js"></script>
+    <script src="jquery.js"></script>
     <script src="script.js"></script>
 
     <title>Content Fusion</title>
@@ -18,16 +19,29 @@
 <body>
     <div class="navigation-bar">
         <a href="index.html" class="navigation-bar-name">ContentFusion</a>
+        <button class="auth-button">Войти</button>
     </div>
     <div class="content-block">
         <div class="categories-block">
-            <button class="categories-button">
+            <button class="categories-button"
+                data-bind="click: function() {
+                    project.nowCategory('new')
+                },
+                css: { 'categories-button-active': project.nowCategory() == 'new' }">
                 Новое
             </button>
-            <button class="categories-button">
+            <button class="categories-button"
+                data-bind="click: function() {
+                    project.nowCategory('popular')
+                },
+                css: { 'categories-button-active': project.nowCategory() == 'popular' }">
                 Популярное
             </button>
-            <button class="categories-button">
+            <button class="categories-button"
+                data-bind="click: function() {
+                    project.nowCategory('category')
+                },
+                css: { 'categories-button-active': project.nowCategory() == 'category' }">
                 Категории
             </button>
         </div>
@@ -103,12 +117,5 @@
         </div>
     </div>
 
-    <script>
-        function AppViewModel() {
-        }
-
-        // Activates knockout.js
-        ko.applyBindings(new AppViewModel());
-    </script>
 </body>
 </html>
