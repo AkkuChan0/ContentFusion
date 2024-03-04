@@ -13,6 +13,7 @@
     <script src="knockout-3.5.1.js"></script>
     <script src="jquery.js"></script>
     <script src="script.js"></script>
+    <script src="temp.js"></script>
 
     <title>Content Fusion</title>
 </head>
@@ -23,73 +24,49 @@
     </div>
     <div class="content-block">
         <div class="categories-block">
-            <button class="categories-button"
-                data-bind="click: function() {
-                    project.nowCategory('new')
-                },
-                css: { 'categories-button-active': project.nowCategory() == 'new' }">
-                Новое
-            </button>
-            <button class="categories-button"
-                data-bind="click: function() {
-                    project.nowCategory('popular')
-                },
-                css: { 'categories-button-active': project.nowCategory() == 'popular' }">
-                Популярное
-            </button>
-            <button class="categories-button"
-                data-bind="click: function() {
-                    project.nowCategory('category')
-                },
-                css: { 'categories-button-active': project.nowCategory() == 'category' }">
-                Категории
-            </button>
+            <div data-bind="foreach: categoriesTemp().categories">
+                <button class="categories-button"
+                    data-bind="click: function() {
+                        project.nowCategory($data)
+                    },
+                    css: { 'categories-button-active': project.nowCategory() == $data },
+                    text: $data">
+                </button>
+            </div>
         </div>
-        <div class="main-left">
-            <div onclick="location.href='page.html#1'" class="content-left">
+        <div class="main-left" data-bind="foreach: articlesTitle">
+            <!-- ko if: project.nowCategory() == 'Новое' || project.nowCategory() == 'Популярное' || project.nowCategory() == 'Все' -->
+            <div class="content-left" data-bind="
+                click: function() {
+                    window.open('page.html#' + id, '_self')
+                }">
                 <img class="content-left-image image-1"/>
                 <div class="content-left-text">
-                    <span class="content-left-title">
-                        Тут что-то есть
+                    <span class="content-left-title" data-bind="text: title">
                     </span>
-                    <span class="content-left-description">
-                        Какой-то текст, который содержит в себе короткое описание статьи
+                    <span class="content-left-description" data-bind="text: description">
                     </span>
+                    <div class="content-left-categories" data-bind="text: categories.join(', ')"></div>
                 </div>
             </div>
-            <div onclick="location.href='page.html#2'" class="content-left">
-                <img class="content-left-image image-2" />
-                <div class="content-left-text">
-                    <span class="content-left-title">
-                        Тут что-то есть
-                    </span>
-                    <span class="content-left-description">
-                        Какой-то текст, который содержит в себе короткое описание статьи
-                    </span>
-                </div>
-            </div>
-            <div onclick="location.href='page.html#3'" class="content-left">
-                <img class="content-left-image image-3" />
-                <div class="content-left-text">
-                    <span class="content-left-title">
-                        Тут что-то есть
-                    </span>
-                    <span class="content-left-description">
-                        Какой-то текст, который содержит в себе короткое описание статьи
-                    </span>
-                </div>
-            </div>
-            <div class="content-left">
-                <img class="content-left-image image-3" />
-                <div class="content-left-text">
-                    <span class="content-left-title">
-                        Тут что-то есть
-                    </span>
-                    <span class="content-left-description">
-                        Какой-то текст, который содержит в себе короткое описание статьи
-                    </span>
-                </div>
-            </div>
+            <!-- /ko -->
+            <!-- ko ifnot: project.nowCategory() == 'Новое' || project.nowCategory() == 'Популярное' || project.nowCategory() == 'Все' -->
+                <!-- ko if: categories.includes(project.nowCategory()) -->
+                    <div class="content-left" data-bind="
+                        click: function() {
+                            window.open('page.html#' + id, '_self')
+                        }">
+                        <img class="content-left-image image-1"/>
+                        <div class="content-left-text">
+                            <span class="content-left-title" data-bind="text: title">
+                            </span>
+                            <span class="content-left-description" data-bind="text: description">
+                            </span>
+                            <div class="content-left-categories" data-bind="text: categories.join(', ')"></div>
+                        </div>
+                    </div>
+                <!-- /ko -->
+            <!-- /ko -->
         </div>
         <div class="main-right">
             <div class="content-right">
@@ -116,6 +93,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>

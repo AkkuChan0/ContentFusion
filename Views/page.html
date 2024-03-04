@@ -12,11 +12,14 @@
     <link rel="stylesheet" href="resources.css">
     <link rel="stylesheet" href="page_style.css">
     <script src="knockout-3.5.1.js"></script>
+    <script src="jquery.js"></script>
     <script src="script.js"></script>
+    <script src="temp.js"></script>
 
     <title>Статья №1</title>
 </head>
 <body>
+    <!-- ko using: nowPage -->
     <div class="navigation-bar">
         <a href="index.html" class="navigation-bar-name">ContentFusion</a>
     </div>
@@ -24,44 +27,26 @@
         <div class="main-left">
             <div class="page-main-block">
                 <div class="page-main-info">
-                    <h2 class="page-main-title">
-                        Тестовая статья №1
+                    <h2 class="page-main-title" data-bind="text: articlesTitle().find(x => x.id == id).title">
                     </h2>
                     <div class="page-main-author">
-                        <span>
-                            Автор: Inter
-                        </span>
+                        <span data-bind="text: 'Автор: ' + author"></span>
                         <span style="margin-left: 10px">29.02.2024</span>
                     </div>
                 </div>
-                <div class="page-main-content">
-                    <p>
-                        Перенос слов средствами CSS
-                    </p>
-                    <p>
-                        В CSS есть несколько свойств, влияющих на перенос текста.
-                    </p>
-                    <p>
-                        overflow-wrap (word-wrap) - управляет переносом длинных слов (normal - не переносить, если перенос не задан явно, break-word - принудительно переносить).
-                        word-break - управляет переносом длинных слов (normal - не переносить, если перенос не задан явно, break-all - принудительно переносить, keep-all - не переносить, даже если слово содержит дефис).
-                        hyphens - автоматический перенос слов, основанный на встроенном в браузер словаре переносов (none - не переносить, auto - переносить длинные слова).
-                    </p>
-                    <p>
-                        Название word-wrap является устаревшим, но сохраняется для совместимости со старыми версиями браузеров.
-                    </p>
-                    <p>
-                        Свойства word-wrap и word-break на первый взгляд делают одно и то же, но есть небольшие отличия. Word-wrap считается более общим, тогда как word-break предусматривает специальное поведение для китайского, японского и корейского языков. Word-wrap начинает не поместившееся слово с новой строки, а word-break нет. Однако word-break является более приоритетным по отношению к word-wrap.
-                    </p>
-                    <p>
-                        Свойство hyphens является наиболее мощным и удобным, но его поддержка браузерами пока не идеальна. Плюс оно требует обязательного указания языка в атрибуте lang тега (например, lang="ru").
-                    </p>
+                <div class="page-main-content" data-bind="text: text">
                 </div>
                 <div class="page-main-statistic">
-                    <button class="page-main-button-reaction like">+</button>
-                    <span style="font-size: 25px; user-select: none;">/</span>
-                    <button class="page-main-button-reaction dislike">–</button>
-                    <span class="page-main-reaction-count">
-                        0
+                    <button class="page-main-button-reaction like" data-bind="
+                    click: function() {
+                        rating(rating() + 1);
+                    }">🖒</button>
+                    <span style="font-size: 40px; user-select: none;">/</span>
+                    <button class="page-main-button-reaction dislike" data-bind="
+                    click: function() {
+                        rating(rating() - 1);
+                    }">🖓</button>
+                    <span class="page-main-reaction-count" data-bind="text: rating">
                     </span>
                 </div>
                 <div class="page-main-comments">
@@ -100,5 +85,25 @@
             </div>
         </div>
     </div>
+    <!-- /ko -->
+    <script>
+        self.nowPage = ko.observable(articlesFull().find(x => x.id == window.location.hash.replace('#', '')));
+
+        self.nowPage().rating.subscribe(x => {
+            if (x > 0)
+                $('.page-main-reaction-count').css('color', 'green');
+            else if (x < 0)
+                $('.page-main-reaction-count').css('color', 'red');
+            else if (x == 0)
+                $('.page-main-reaction-count').css('color', 'black');
+        })
+
+        if (self.nowPage().rating() > 0)
+            $('.page-main-reaction-count').css('color', 'green');
+        else if (self.nowPage().rating() < 0)
+            $('.page-main-reaction-count').css('color', 'red');
+        else if (self.nowPage().rating() == 0)
+            $('.page-main-reaction-count').css('color', 'black');
+    </script>
 </body>
 </html>
