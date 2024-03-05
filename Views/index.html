@@ -24,6 +24,7 @@
     </div>
     <div class="content-block">
         <div class="categories-block">
+            <button class="new-article" onclick="location.href='create_article.html'">Написать статью</button>
             <div data-bind="foreach: categoriesTemp().categories">
                 <button class="categories-button"
                     data-bind="click: function() {
@@ -39,7 +40,6 @@
             </div>
         </div>
         <div class="main-left">
-            <button class="new-article" onclick="location.href='create_article.html'">Написать статью</button>
             <!-- ko foreach: articlesTitle -->
             <!-- ko if: project.nowCategory() == 'Новое' || project.nowCategory() == 'Популярное' -->
             <div class="content-left" data-bind="

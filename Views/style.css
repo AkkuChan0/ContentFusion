@@ -23,24 +23,25 @@ body {
 
 .new-article {
     padding: 0 20px;
-    width: 230px;
-    margin: auto 0 auto;
-    font-size: 20px;
+    width: 250px;
+    height: 70px;
+    font-size: 24px;
     font-family: 'Oswald', sans-serif;
     border-radius: 10px;
-    height: 50px;
     text-align: center;
-    background: linear-gradient(-45deg, rgb(17, 217, 160), rgb(222, 56, 10));
-    color: white;
+    background: rgb(239, 239, 239);
+    color: black;
     font-weight: 600;
     background-size: 200% 200%;
     animation: gradient 3s ease infinite;
     border: none;
     cursor: pointer;
     transition: .15s ease-out;
+    margin: 20px 0 50px 0;
 }
 
 .new-article:hover {
+    color: white;
     background: linear-gradient(-45deg, rgb(179, 14, 143), rgb(19, 188, 244));
     background-size: 200% 200%;
     animation: gradient 1s ease infinite;
@@ -246,7 +247,6 @@ body {
 
 .categories-block {
     margin-left: 30px;
-    padding-top: 100px;
     border-right: 1px solid black;
     padding-right: 30px;
 }
