@@ -25,13 +25,13 @@
     <div class="content-block">
         <div class="categories-block">
             <button class="new-article" onclick="location.href='create_article.html'">Написать статью</button>
-            <div data-bind="foreach: categoriesTemp().categories">
+            <div data-bind="foreach: categoriesTemp">
                 <button class="categories-button"
                     data-bind="click: function() {
                         if ($data == 'Популярное')
                             self.articlesTitle(self.articlesTitle().sort((a, b) => a.rating() < b.rating()))
                         else if ($data == 'Новое')
-                            self.articlesTitle(self.articlesTitle().sort((a, b) => a.date < b.date))
+                            self.articlesTitle(self.articlesTitle().sort((a, b) => a.date() < b.date()))
                         project.nowCategory($data)
                     },
                     css: { 'categories-button-active': project.nowCategory() == $data },
@@ -44,7 +44,7 @@
             <!-- ko if: project.nowCategory() == 'Новое' || project.nowCategory() == 'Популярное' -->
             <div class="content-left" data-bind="
                 click: function() {
-                    window.open('page.html#' + id, '_self')
+                    window.open('page.html#' + id(), '_self')
                 }">
                 <img class="content-left-image image-1"/>
                 <div class="content-left-text">
@@ -52,13 +52,13 @@
                     </span>
                     <span class="content-left-description" data-bind="text: description">
                     </span>
-                    <div class="content-left-categories" data-bind="text: categories.join(', ')"></div>
-                    <div class="content-left-date" data-bind="text: new Date(date).toLocaleString()"></div>
+                    <div class="content-left-categories" data-bind="text: categories().join(', ')"></div>
+                    <div class="content-left-date" data-bind="text: new Date(date()).toLocaleString()"></div>
                 </div>
             </div>
             <!-- /ko -->
             <!-- ko ifnot: project.nowCategory() == 'Новое' || project.nowCategory() == 'Популярное' -->
-                <!-- ko if: categories.includes(project.nowCategory()) -->
+                <!-- ko if: categories().includes(project.nowCategory()) -->
                     <div class="content-left" data-bind="
                         click: function() {
                             window.open('page.html#' + id, '_self')
@@ -69,7 +69,7 @@
                             </span>
                             <span class="content-left-description" data-bind="text: description">
                             </span>
-                            <div class="content-left-categories" data-bind="text: categories.join(', ')"></div>
+                            <div class="content-left-categories" data-bind="text: categories().join(', ')"></div>
                         </div>
                     </div>
                 <!-- /ko -->
@@ -102,7 +102,7 @@
         </div>
     </div>
     <script>
-        self.popular = self.articlesFull().sort((a, b) => a > b);
+        
     </script>
 </body>
 </html>

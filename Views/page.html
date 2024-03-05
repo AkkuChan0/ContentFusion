@@ -25,13 +25,14 @@
     </div>
     <div class="content-block">
         <div class="main-left">
+            <!-- ko if: nowPage -->
             <div class="page-main-block">
                 <div class="page-main-info">
-                    <h2 class="page-main-title" data-bind="text: articlesTitle().find(x => x.id == id).title">
+                    <h2 class="page-main-title" data-bind="text: articlesTitle().find(x => x.id() == id()).title">
                     </h2>
                     <div class="page-main-author">
-                        <span data-bind="text: 'Автор: ' + author"></span>
-                        <span style="margin-left: 10px" data-bind="text: new Date(articlesTitle().find(x => x.id == id).date).toLocaleString()"></span>
+                        <span data-bind="text: 'Автор: ' + author()"></span>
+                        <span style="margin-left: 10px" data-bind="text: new Date(articlesTitle().find(x => x.id() == id()).date()).toLocaleString()"></span>
                     </div>
                 </div>
                 <div class="page-main-content" data-bind="text: text">
@@ -59,6 +60,7 @@
                     </div>
                 </div>
             </div>
+            <!-- /ko -->
         </div>
         <div class="main-right">
             <div class="content-right">
@@ -87,8 +89,23 @@
     </div>
     <!-- /ko -->
     <script>
-        self.nowPage = ko.observable(articlesFull().find(x => x.id == window.location.hash.replace('#', '')));
+        self.nowPage = ko.observable()
+        $.ajax({
+            url: 'data/articlesFull.json',
+            dataType: 'json',
+            success: function(data) {
+                self.articlesFull = ko.mapping.fromJS(data.articlesFull)
+                self.nowPage(articlesFull().find(x => x.id() == window.location.hash.replace('#', '')));
 
+                if (self.nowPage().rating() > 0)
+                    $('.page-main-reaction-count').css('color', 'green');
+                else if (self.nowPage().rating() < 0)
+                    $('.page-main-reaction-count').css('color', 'red');
+                else if (self.nowPage().rating() == 0)
+                    $('.page-main-reaction-count').css('color', 'black');
+                    }
+        });
+        
         self.nowPage().rating.subscribe(x => {
             if (x > 0)
                 $('.page-main-reaction-count').css('color', 'green');
@@ -97,13 +114,6 @@
             else if (x == 0)
                 $('.page-main-reaction-count').css('color', 'black');
         })
-
-        if (self.nowPage().rating() > 0)
-            $('.page-main-reaction-count').css('color', 'green');
-        else if (self.nowPage().rating() < 0)
-            $('.page-main-reaction-count').css('color', 'red');
-        else if (self.nowPage().rating() == 0)
-            $('.page-main-reaction-count').css('color', 'black');
     </script>
 </body>
 </html>

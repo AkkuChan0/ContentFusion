@@ -309,6 +309,7 @@ body {
     font-family: 'Oswald', sans-serif;
     letter-spacing: 1px;
     transition: .2s;
+    width: 80px;
 }
 
 .auth-button:hover {
