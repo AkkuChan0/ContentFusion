@@ -31,7 +31,7 @@
                     </h2>
                     <div class="page-main-author">
                         <span data-bind="text: 'Автор: ' + author"></span>
-                        <span style="margin-left: 10px">29.02.2024</span>
+                        <span style="margin-left: 10px" data-bind="text: new Date(articlesTitle().find(x => x.id == id).date).toLocaleString()"></span>
                     </div>
                 </div>
                 <div class="page-main-content" data-bind="text: text">

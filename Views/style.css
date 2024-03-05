@@ -21,6 +21,37 @@ body {
     background: linear-gradient(-45deg, var(--main-color), rgb(228, 92, 216));
 }
 
+.new-article {
+    padding: 0 20px;
+    width: 230px;
+    margin: auto 0 auto;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 10px;
+    height: 50px;
+    text-align: center;
+    background: linear-gradient(-45deg, rgb(17, 217, 160), rgb(222, 56, 10));
+    color: white;
+    font-weight: 600;
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+    border: none;
+    cursor: pointer;
+    transition: .15s ease-out;
+}
+
+.new-article:hover {
+    background: linear-gradient(-45deg, rgb(179, 14, 143), rgb(19, 188, 244));
+    background-size: 200% 200%;
+    animation: gradient 1s ease infinite;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.new-article:active {
+    
+}
+
 .navigation-bar-name {
     margin: auto;
     font-size: 25px;
@@ -172,6 +203,11 @@ body {
     display: block;
     margin-top: 15px;
     margin-bottom: 10px;
+}
+
+.content-left-date {
+    display: block;
+    margin-top: 10px;
 }
 
 @media (max-width: 400px) {
