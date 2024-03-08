@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="resources.css">
     <script src="knockout-3.5.1.js"></script>
     <script src="jquery.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="script.js"></script>
-    <script src="temp.js"></script>
 
     <title>Content Fusion</title>
 </head>
@@ -26,20 +26,25 @@
         <div class="categories-block">
             <button class="new-article" onclick="location.href='create_article.html'">Написать статью</button>
             <div data-bind="foreach: categoriesTemp">
+                
                 <button class="categories-button"
                     data-bind="click: function() {
-                        if ($data == 'Популярное')
-                            self.articlesTitle(self.articlesTitle().sort((a, b) => a.rating() < b.rating()))
-                        else if ($data == 'Новое')
-                            self.articlesTitle(self.articlesTitle().sort((a, b) => a.date() < b.date()))
-                        project.nowCategory($data)
+                        if ($data.name() == 'Популярное')
+                            self.articlesTitle(self.articlesTitle().sort((a, b) => a.rating() < b.rating()));
+                        else if ($data.name() == 'Новое')
+                            self.articlesTitle(self.articlesTitle().sort((a, b) => a.date() < b.date()));
+                        project.nowCategory($data.name())
                     },
-                    css: { 'categories-button-active': project.nowCategory() == $data },
-                    text: $data">
+                    css: { 'categories-button-active': project.nowCategory() == $data.name() }">
+                    <span data-bind="text: $data.name"></span>
                 </button>
             </div>
         </div>
         <div class="main-left">
+            <!-- ko if: project.nowCategory() == 'Новое'-->
+            <!-- ko using: self.articlesTitle(self.articlesTitle().sort((a, b) => a.date() < b.date())); -->
+            <!-- /ko -->
+            <!-- /ko -->
             <!-- ko foreach: articlesTitle -->
             <!-- ko if: project.nowCategory() == 'Новое' || project.nowCategory() == 'Популярное' -->
             <div class="content-left" data-bind="

@@ -93,6 +93,7 @@
         $.ajax({
             url: 'data/articlesFull.json',
             dataType: 'json',
+            async: false,
             success: function(data) {
                 self.articlesFull = ko.mapping.fromJS(data.articlesFull)
                 self.nowPage(articlesFull().find(x => x.id() == window.location.hash.replace('#', '')));

@@ -36,7 +36,7 @@ body {
     animation: gradient 3s ease infinite;
     border: none;
     cursor: pointer;
-    transition: .15s ease-out;
+    transition: .2s ease-out;
     margin: 20px 0 50px 0;
 }
 
@@ -46,7 +46,7 @@ body {
     background-size: 200% 200%;
     animation: gradient 1s ease infinite;
     font-weight: 900;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .new-article:active {
@@ -98,8 +98,7 @@ body {
     right: 0px;
     min-width: 150px;
     max-width: 200px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 7px;
     margin: 10px auto 20px;
     padding: 10px;
     display: flex;
@@ -153,8 +152,7 @@ body {
     max-width: 770px;
     min-width: 400px;
     border-bottom: 1px solid black;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
     margin: 10px auto;
     transition: .25s ease-in-out;
     padding: 10px;
@@ -164,7 +162,8 @@ body {
 }
 
 .content-left:hover, .content-right:hover {
-    background-color: rgb(220, 238, 255);
+    /* background-color: rgb(220, 238, 255); */
+    box-shadow: 1px 1px 5px #545454;
 }
 
 .content-left:active, .content-right:active {
@@ -264,7 +263,7 @@ body {
     border-radius: 10px;
     display: block;
     margin-bottom: 15px;
-    padding: 5px 10px 5px 10px;
+    padding: 7px 10px 5px 10px;
 }
 
 @keyframes gradient {
@@ -279,7 +278,12 @@ body {
 	}
 }
 
+.categories-button:hover::before {
+    opacity: 0;
+}
+
 .categories-button:hover {
+    opacity: 1;
     background: linear-gradient(-45deg, var(--main-color), rgb(206, 37, 192));
     color: white;
     background-size: 150% 150%;
