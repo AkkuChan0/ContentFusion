@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="resources.css">
     <link rel="stylesheet" href="page_style.css">
+
     <script src="knockout-3.5.1.js"></script>
     <script src="jquery.js"></script>
     <script src="script.js"></script>
@@ -22,9 +23,13 @@
     <!-- ko using: nowPage -->
     <div class="navigation-bar">
         <a href="index.html" class="navigation-bar-name">ContentFusion</a>
+        <button class="auth-button" onclick="location.href='profile.html'">Профиль</button>
     </div>
     <div class="content-block">
         <div class="main-left">
+            <div class="hide">
+                <button class="new-article mobile-button" onclick="location.href='profile.html'">Профиль</button>
+            </div>
             <!-- ko if: nowPage -->
             <div class="page-main-block">
                 <div class="page-main-info">

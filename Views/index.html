@@ -20,13 +20,12 @@
 <body>
     <div class="navigation-bar">
         <a href="index.html" class="navigation-bar-name">ContentFusion</a>
-        <button class="auth-button">Войти</button>
+        <button class="auth-button" onclick="location.href='profile.html'">Профиль</button>
     </div>
     <div class="content-block">
         <div class="categories-block">
             <button class="new-article" onclick="location.href='create_article.html'">Написать статью</button>
             <div data-bind="foreach: categoriesTemp">
-                
                 <button class="categories-button"
                     data-bind="click: function() {
                         if ($data.name() == 'Популярное')
@@ -41,6 +40,10 @@
             </div>
         </div>
         <div class="main-left">
+            <div class="hide">
+                <button class="new-article mobile-button" onclick="location.href='create_article.html'">Написать статью</button>
+                <button class="new-article mobile-button" onclick="location.href='profile.html'">Профиль</button>
+            </div>
             <!-- ko if: project.nowCategory() == 'Новое'-->
             <!-- ko using: self.articlesTitle(self.articlesTitle().sort((a, b) => a.date() < b.date())); -->
             <!-- /ko -->
