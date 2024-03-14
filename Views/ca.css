@@ -52,3 +52,12 @@
     background-position:center center;
     background-size:cover;
 }
+
+@media (max-width: 1370px) {
+    .main-right {
+        display: block;
+    }
+    .content-block {
+        display: block
+    }
+}
